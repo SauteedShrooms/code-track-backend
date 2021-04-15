@@ -1,0 +1,2 @@
+class Accessorry < ApplicationRecord
+end

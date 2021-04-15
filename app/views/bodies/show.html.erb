@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @body.name %>
+</p>
+
+<p>
+  <strong>Speed:</strong>
+  <%= @body.speed %>
+</p>
+
+<p>
+  <strong>Efficency:</strong>
+  <%= @body.efficency %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @body.power %>
+</p>
+
+<%= link_to 'Edit', edit_body_path(@body) %> |
+<%= link_to 'Back', bodies_path %>
