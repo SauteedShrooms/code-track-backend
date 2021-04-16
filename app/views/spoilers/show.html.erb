@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spoiler.name %>
+</p>
+
+<p>
+  <strong>Speed:</strong>
+  <%= @spoiler.speed %>
+</p>
+
+<p>
+  <strong>Efficency:</strong>
+  <%= @spoiler.efficency %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @spoiler.power %>
+</p>
+
+<%= link_to 'Edit', edit_spoiler_path(@spoiler) %> |
+<%= link_to 'Back', spoilers_path %>

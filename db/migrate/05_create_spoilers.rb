@@ -1,7 +1,8 @@
-class CreateAccessorries < ActiveRecord::Migration[6.1]
+class CreateSpoilers < ActiveRecord::Migration[6.1]
   def change
-    create_table :accessorries do |t|
+    create_table :spoilers do |t|
       t.string :name
+      t.string :image
       t.integer :speed
       t.integer :efficency
       t.integer :power

@@ -1,10 +1,10 @@
-<%= form_with(model: accessorry) do |form| %>
-  <% if accessorry.errors.any? %>
+<%= form_with(model: spoiler) do |form| %>
+  <% if spoiler.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(accessorry.errors.count, "error") %> prohibited this accessorry from being saved:</h2>
+      <h2><%= pluralize(spoiler.errors.count, "error") %> prohibited this spoiler from being saved:</h2>
 
       <ul>
-        <% accessorry.errors.each do |error| %>
+        <% spoiler.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

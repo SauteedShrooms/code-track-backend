@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :cars
   resources :bodies
   resources :wheels
-  resources :accessorries
+  resources :spoilers
   resources :paints
   resources :users, only:[:index, :show]
 

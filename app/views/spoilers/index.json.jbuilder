@@ -1,0 +1,1 @@
+json.array! @spoilers, partial: "spoilers/spoiler", as: :spoiler
