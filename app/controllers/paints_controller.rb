@@ -1,69 +1,25 @@
 class PaintsController < ApplicationController
-  before_action :set_paint, only: %i[ show edit update destroy ]
 
-  # GET /paints or /paints.json
-  def index
-    @paints = Paint.all
-  end
+   def index 
+      paints = Paint.all
+      render json: paints
+   end 
+   
+   def create
+      paint = Paint.create!({ 
+         name: permitted_params['name'],
+         image: permitted_params['image']
+      })
+      render json: paint
+   end
 
-  # GET /paints/1 or /paints/1.json
-  def show
-  end
+   def show
+      paint = Paint.find_by(id: params[:id])
+      render json: paint
+   end
 
-  # GET /paints/new
-  def new
-    @paint = Paint.new
-  end
+   def permitted_params
+      params.require(:paint).permit(:name, :image)
+   end
 
-  # GET /paints/1/edit
-  def edit
-  end
-
-  # POST /paints or /paints.json
-  def create
-    @paint = Paint.new(paint_params)
-
-    respond_to do |format|
-      if @paint.save
-        format.html { redirect_to @paint, notice: "Paint was successfully created." }
-        format.json { render :show, status: :created, location: @paint }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @paint.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /paints/1 or /paints/1.json
-  def update
-    respond_to do |format|
-      if @paint.update(paint_params)
-        format.html { redirect_to @paint, notice: "Paint was successfully updated." }
-        format.json { render :show, status: :ok, location: @paint }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @paint.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /paints/1 or /paints/1.json
-  def destroy
-    @paint.destroy
-    respond_to do |format|
-      format.html { redirect_to paints_url, notice: "Paint was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paint
-      @paint = Paint.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def paint_params
-      params.require(:paint).permit(:name)
-    end
 end

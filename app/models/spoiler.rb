@@ -1,3 +1,3 @@
 class Spoiler < ApplicationRecord
-   belongs_to :car
+   has_many :car
 end
