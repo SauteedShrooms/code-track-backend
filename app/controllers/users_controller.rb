@@ -14,7 +14,6 @@ class UsersController < ApplicationController
           age: permitted_params['age'],
           email: permitted_params['email'],
           avatar: permitted_params['avatar'],
-          
       })
       render json: user
   end
@@ -34,4 +33,33 @@ class UsersController < ApplicationController
       render json:user 
   end 
 
+  def signup
+     
+    user = User.create(
+        name: params[:user][:name],
+        username: params[:user][:username],
+        password: params[:user][:password],
+        email: params[:user][:email],
+        age: params[:user][:age],
+        avatar: params[:user][:avatar] 
+        # "https://www.peterbe.com/avatar.random.png"
+    ) 
+    
+    if user.save
+        render json: {
+            auth: true,
+            user: user,
+            # tags: [],
+            # token: encode({user_id: user.id})
+        }
+    else
+        render json: {
+            auth: false,
+            info: user.errors.full_messages
+        }
+    end
 end
+
+    
+
+end 

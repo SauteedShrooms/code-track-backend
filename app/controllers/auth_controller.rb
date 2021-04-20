@@ -1,6 +1,4 @@
 class AuthController < ApplicationController
-    
-  #  before_action :authorized, only: [:auto_login]
  
   # REGISTER
   # def create
@@ -13,7 +11,7 @@ class AuthController < ApplicationController
   #   end
   # end
  
-  LOGGING IN
+  # LOGGING IN
   def create
     @user = User.find_by(username: user_params[:username])
 
@@ -25,15 +23,35 @@ class AuthController < ApplicationController
     end
   end
  
- 
-  #  def auto_login
-  #    render json: @user
-  #  end
- 
-   private
- 
-   def user_params
-     params.require(:user).permit(:username, :password)
-   end
+  # def auto_login
+  #   render json: @user
+  # end
 
-end 
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
+
+#################
+
+  # def create
+  #   @user = User.find_by(email: users_params[:email])
+  #   if @user && @user.authenticate(users_params[:password])
+  #       payload = { user_id: @user.id }
+  #       token = JWT.encode(payload,'mySecret','HS256')
+  #       render json: { token: token }
+  #   else
+  #       render json: { msg: "User doesn't exist. Try again!"}
+  #   end
+  # end
+
+  # private
+  # def users_params
+  #     params.require(:user).permit(:email,:password)
+  # end
+
+
+
+
+end
