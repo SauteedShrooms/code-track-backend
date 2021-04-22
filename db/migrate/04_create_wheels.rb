@@ -1,6 +1,7 @@
 class CreateWheels < ActiveRecord::Migration[6.1]
   def change
     create_table :wheels do |t|
+      t.string :partType
       t.string :name
       t.string :image
       t.integer :speed

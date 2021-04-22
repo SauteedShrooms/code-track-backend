@@ -7,6 +7,7 @@ class BodiesController < ApplicationController
 
    def create
       body = Body.create!({ 
+         partType: permitted_params['partType'],
          name: permitted_params['name'],
          image: permitted_params['image'],
          speed: permitted_params['speed'],
@@ -22,7 +23,7 @@ class BodiesController < ApplicationController
    end 
 
    def permitted_params
-      params.require(:body).permit(:name, :image, :speed, :efficency, :power)
+      params.require(:body).permit(:partType, :name, :image, :speed, :efficency, :power)
    end
 
 end

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 6) do
   enable_extension "plpgsql"
 
   create_table "bodies", force: :cascade do |t|
+    t.string "partType"
     t.string "name"
     t.string "image"
     t.integer "speed"
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   create_table "paints", force: :cascade do |t|
+    t.string "partType"
     t.string "name"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   create_table "spoilers", force: :cascade do |t|
+    t.string "partType"
     t.string "name"
     t.string "image"
     t.integer "speed"
@@ -71,6 +74,7 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   create_table "wheels", force: :cascade do |t|
+    t.string "partType"
     t.string "name"
     t.string "image"
     t.integer "speed"

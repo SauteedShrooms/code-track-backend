@@ -7,6 +7,7 @@ class PaintsController < ApplicationController
    
    def create
       paint = Paint.create!({ 
+         partType: permitted_params['partType'],
          name: permitted_params['name'],
          image: permitted_params['image']
       })
@@ -19,7 +20,7 @@ class PaintsController < ApplicationController
    end
 
    def permitted_params
-      params.require(:paint).permit(:name, :image)
+      params.require(:paint).permit(:partType, :name, :image)
    end
 
 end

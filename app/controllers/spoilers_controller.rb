@@ -7,6 +7,7 @@ class SpoilersController < ApplicationController
 
    def create
       spoiler = Spoiler.create!({ 
+         partType: permitted_params['partType'],
          name: permitted_params['name'],
          image: permitted_params['image'],
          speed: permitted_params['speed'],
@@ -22,7 +23,7 @@ class SpoilersController < ApplicationController
    end 
 
    def permitted_params
-      params.require(:spoiler).permit(:name, :image, :speed, :efficency, :power)
+      params.require(:spoiler).permit(:partType, :name, :image, :speed, :efficency, :power)
    end
    
 end

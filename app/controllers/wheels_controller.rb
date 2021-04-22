@@ -7,11 +7,12 @@ class WheelsController < ApplicationController
 
    def create
       wheel = Wheel.create!({ 
-          name: permitted_params['name'],
-          image: permitted_params['image'],
-          speed: permitted_params['speed'],
-          efficency: permitted_params['efficency'],
-          power: permitted_params['power']
+         partType: permitted_params['partType'],
+         name: permitted_params['name'],
+         image: permitted_params['image'],
+         speed: permitted_params['speed'],
+         efficency: permitted_params['efficency'],
+         power: permitted_params['power']
       })
       render json: wheel
    end
@@ -22,7 +23,7 @@ class WheelsController < ApplicationController
    end 
 
    def permitted_params
-      params.require(:wheel).permit(:name, :image, :speed, :efficency, :power)
+      params.require(:wheel).permit(:partType, :name, :image, :speed, :efficency, :power)
    end
 
 end

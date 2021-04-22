@@ -1,6 +1,7 @@
 class CreateSpoilers < ActiveRecord::Migration[6.1]
   def change
     create_table :spoilers do |t|
+      t.string :partType
       t.string :name
       t.string :image
       t.integer :speed
