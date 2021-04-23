@@ -2,15 +2,16 @@ class CarsController < ApplicationController
   
   def create
     
-    car = Car.create!({
+    car = Car.create({
         name: permitted_params['name'],
         image: permitted_params['image'],
-        user: User.find(permitted_params['user_id']),
-        body: Body.find(permitted_params['body_id']),
-        paint: Paint.find(permitted_params['paint_id']),
-        wheel: Wheel.find(permitted_params['wheel_id']),
-        spoiler: Spoiler.find(permitted_params['spoiler_id']),
+        user_id: permitted_params['user_id'],
+        body_id: permitted_params['body_id'],
+        paint_id: permitted_params['paint_id'],
+        wheel_id: permitted_params['wheel_id'],
+        spoiler_id: permitted_params['spoiler_id'],
     })
+    
     render json: car
     
   end
@@ -29,7 +30,6 @@ class CarsController < ApplicationController
   def destroy
       car = Car.find_by(id: params[:id])
       car.destroy
-      render json: car
   end
 
   def update
