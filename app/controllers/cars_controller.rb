@@ -1,7 +1,8 @@
 class CarsController < ApplicationController
   
   def create
-    car = Car.create!({ 
+    
+    car = Car.create!({
         name: permitted_params['name'],
         image: permitted_params['image'],
         user: User.find(permitted_params['user_id']),
@@ -11,6 +12,7 @@ class CarsController < ApplicationController
         spoiler: Spoiler.find(permitted_params['spoiler_id']),
     })
     render json: car
+    
   end
 
   def index 
